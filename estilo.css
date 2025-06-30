@@ -1,0 +1,587 @@
+:root {
+    --color-primary: #005f73;
+    --color-primary-light: #0a9396;
+    --color-secondary: #94d2bd;
+    --color-bg: #f0f4f8;
+    --color-text: #333333;
+    --color-text-muted: #6b7280;
+    --color-border: #e2e8f0;
+    --color-error: #ba1a1a;
+    --color-payment-bg: #fff1d6;
+    --color-payment-border: #f9c449;
+    --font-family: 'Poppins', sans-serif;
+    --transition: 0.3s ease;
+    --border-radius: 0.75rem;
+    --shadow-card: 0 4px 10px rgba(0, 0, 0, 0.05);
+    --max-width: 900px;
+    --payment-accent: #f2b600;
+    --payment-accent-checked: #ddb400;
+    --radio-size: 30px;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background: linear-gradient(135deg, #e0f7f8 0%, #bbdefb 50%, #f0f4f8 100%);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  header {
+    background-color: var(--color-primary);
+    padding: 1.5rem 3rem;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 14px rgba(0,0,0,0.15);
+    user-select: none;
+  }
+
+  header .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  header .logo {
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -0.05em;
+    cursor: default;
+  }
+
+  header .tagline {
+    font-weight: 400;
+    font-size: 1rem;
+    opacity: 0.85;
+    font-style: italic;
+    flex-grow: 1;
+    text-align: right;
+    min-width: 220px;
+  }
+
+  main {
+    flex-grow: 1;
+    padding: 3rem 1.5rem 5rem;
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card {
+    background: var(--color-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+    padding: 2rem 2.5rem;
+    margin-bottom: 2.5rem;
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+  }
+
+  h1, h2 {
+    margin-top: 0;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-primary);
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 0.3rem;
+    user-select: none;
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.75rem;
+  }
+
+  p.lead {
+    color: var(--color-text-muted);
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin-top: 0;
+    margin-bottom: 3rem;
+    user-select: none;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    align-self: center;
+  }
+
+  .presentation-content {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+    padding: 2.5rem 3rem;
+    margin-bottom: 3rem;
+    user-select: none;
+    color: #234e52;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .presentation-content h2 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .presentation-content p {
+    margin-bottom: 1.25rem;
+  }
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  fieldset.active {
+    display: flex;
+  }
+
+  label {
+    font-weight: 600;
+    color: var(--color-primary);
+    user-select: none;
+    display: block;
+    margin-bottom: 0.6rem;
+    font-size: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  select,
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    font-family: var(--font-family);
+    font-size: 1rem;
+    padding: 0.95rem 1.1rem;
+    width: 100%;
+    border-radius: var(--border-radius);
+    border: 1.5px solid var(--color-border);
+    background-color: #fefefe;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    resize: vertical;
+  }
+
+  select:focus,
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--color-primary-light);
+    box-shadow: 0 0 8px var(--color-primary-light);
+    background-color: #fff;
+  }
+
+  span.error {
+    color: var(--color-error);
+    font-size: 0.875rem;
+    margin-top: 0.28rem;
+    display: none;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  button {
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1rem 2.5rem;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    background: var(--color-primary);
+    color: white;
+    transition: background-color var(--transition), transform 0.15s ease;
+    user-select: none;
+    box-shadow: 0 4px 10px rgba(0,95,115,0.3);
+    min-width: 130px;
+    white-space: nowrap;
+  }
+
+  button:disabled {
+    background: #94d2bd;
+    cursor: not-allowed;
+    color: #666;
+    box-shadow: none;
+    transform: none;
+  }
+
+  button:hover:not(:disabled),
+  button:focus:not(:disabled) {
+    background: var(--color-primary-light);
+    transform: scale(1.05);
+    outline: none;
+  }
+
+  button.secondary {
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    box-shadow: 0 4px 10px rgba(148,210,189,0.5);
+  }
+
+  button.secondary:hover,
+  button.secondary:focus {
+    background: #79bfa8;
+    color: var(--color-primary-light);
+    transform: scale(1.05);
+  }
+
+  /* Simulation selection cards - UPDATED */
+  .simulations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.8rem;
+  }
+
+  .sim-card {
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: 1.6rem 1.8rem;
+    cursor: pointer;
+    background: #fefefe;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
+    position: relative;
+    min-height: 200px; /* Fixed height for consistency */
+  }
+
+  .sim-card:hover,
+  .sim-card:focus-within {
+    border-color: var(--color-primary-light);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    background-color: #fcfdfd;
+    outline-offset: -4px;
+    outline: 3px solid var(--color-primary-light);
+  }
+
+  .sim-card input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    accent-color: var(--color-primary);
+    margin-bottom: 0.9rem;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .sim-card label {
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-left: 28px;
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+    position: relative;
+    top: -2px;
+  }
+
+  .sim-description {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+    line-height: 1.4;
+    user-select: text;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .sim-price {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-primary-light);
+    background: rgba(10, 147, 150, 0.15);
+    padding: 2px 8px;
+    border-radius: 12px;
+    user-select: none;
+  }
+
+  /* Payment methods */
+  .payment-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+
+  .payment-option {
+    display: flex;
+    align-items: center;
+    padding: 1.3rem 1.5rem;
+    border-radius: var(--border-radius);
+    background-color: var(--color-payment-bg);
+    border: 3px solid var(--color-payment-border);
+    cursor: pointer;
+    transition: background-color var(--transition), border-color var(--transition), box-shadow 0.3s ease;
+    user-select: none;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.07);
+    user-select: none;
+    min-height: 60px;
+  }
+
+  .payment-option:hover,
+  .payment-option:focus-within {
+    background-color: #fff3b0;
+    border-color: var(--payment-accent);
+    box-shadow: 0 0 12px var(--payment-accent);
+    z-index: 2;
+  }
+
+  .payment-option input[type="radio"]:checked + label {
+    border-color: var(--payment-accent-checked);
+    background-color: #fff5c2;
+    box-shadow: 0 0 20px var(--payment-accent-checked);
+    z-index: 3;
+  }
+
+  .payment-option input[type="radio"]:checked {
+    border-color: var(--payment-accent-checked);
+    background-color: var(--payment-accent-checked);
+    width: 32px;
+    height: 32px;
+    transition: all 0.3s ease;
+  }
+
+  .payment-option input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 28px;
+    height: 28px;
+    border: 2.8px solid var(--color-primary);
+    border-radius: 50%;
+    margin-right: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.3s ease, background-color 0.3s ease, width 0.3s ease, height 0.3s ease;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+
+  .payment-option input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    display: block;
+    transition: opacity 0.3s ease;
+  }
+
+  .payment-option label {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--color-primary-dark, var(--color-primary));
+    cursor: pointer;
+    user-select: none;
+    flex-grow: 1;
+  }
+
+  /* Headset cards */
+  .headset-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    max-width: 700px;
+    margin-top: 1rem;
+  }
+
+  .headset-card {
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: 1rem 1.5rem;
+    background: #fefefe;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
+    outline-offset: -4px;
+    position: relative;
+    min-height: 160px;
+  }
+
+  .headset-card:hover,
+  .headset-card:focus-within {
+    border-color: var(--color-primary-light);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+    background-color: #fcfdfd;
+  }
+
+  .headset-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .headset-card input[type="radio"]:checked + label {
+    border-color: var(--color-primary-light);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+    background-color: #e0f7f8;
+    z-index: 5;
+  }
+
+  .headset-card label {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    height: 100%;
+    outline-offset: -4px;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    user-select: none;
+    border: 2px solid transparent;
+    transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
+    flex-grow: 1;
+    position: relative;
+  }
+
+  .headset-card input[type="radio"]:checked + label {
+    border-color: var(--color-primary-light);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+    background-color: #e0f7f8;
+  }
+
+  .headset-title {
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .option-label {
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    white-space: nowrap;
+    user-select: none;
+  }
+  .option-label.economical {
+    background: #2a9d8f;
+  }
+  .option-label.best-selling {
+    background: #e76f51;
+  }
+  .option-label.best {
+    background: var(--color-primary);
+  }
+
+  .headset-benefits {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.3;
+  }
+
+  .headset-ideal {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--color-primary-light);
+    margin-top: auto;
+    font-weight: 600;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    main {
+      padding: 2rem 1rem 3rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .buttons {
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+    }
+    button {
+      width: 100%;
+    }
+    header .container {
+      flex-direction: column;
+      gap: 0.6rem;
+      text-align: center;
+    }
+    header .tagline {
+      text-align: center;
+      min-width: initial;
+    }
+    .simulations-grid {
+      grid-template-columns: 1fr;
+    }
+    .payment-options {
+      max-width: 100%;
+      grid-template-columns: 1fr !important;
+    }
+    .headset-cards {
+      max-width: 100%;
+      grid-template-columns: 1fr;
+    }
+    .presentation-content {
+      padding: 1.5rem 1.8rem;
+    }
+  }

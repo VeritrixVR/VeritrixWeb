@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="estilo.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <script src="veritrix.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container" role="banner">
+          <div class="logo" aria-label="Veritrix Logo">Veritrix</div>
+          <div class="tagline">Vive el escenario, domina la respuesta.</div>
+        </div>
+      </header>
+      <main role="main" aria-labelledby="main-title">
+        <p class="lead" id="description-bot" style="order: 99; margin-top: 3rem; max-width: 900px;">
+          Completa tus datos y personaliza tu experiencia en realidad virtual para entrenar simulaciones realistas y seguras.
+        </p>
+    
+        <form id="bookingForm" novalidate>
+          <!-- Step 0: Presentation page -->
+          <fieldset id="step0" class="active" aria-live="polite" aria-label="Presentación">
+            <h2>¿Por qué elegirnos?</h2>
+            <div class="presentation-content">
+              <p><strong>Somos Veritrix,</strong> un grupo de jóvenes estudiantes entusiastas que están creando una startup para unir lo teórico con lo real a base de una enriquecedora actividad con vinculadores de realidad virtual.</p>
+              <p>Ofrecemos experiencias inmersivas que permiten practicar situaciones conscientes, reales y seguras, facilitando el aprendizaje a través de la simulación virtual.</p>
+              <p>Nuestra misión es conectar el conocimiento teórico con la práctica efectiva mediante tecnología innovadora y un enfoque pedagógico único.</p>
+            </div>
+            <div class="buttons" style="justify-content:center; margin-top: 1.25rem;">
+              <button type="button" id="startBtn">Comenzar reserva</button>
+            </div>
+          </fieldset>
+    
+          <!-- Step 1: Datos del Usuario -->
+          <fieldset id="step1" aria-label="Datos del usuario">
+            <h2>Paso 1: Tus datos</h2>
+            <div class="form-group">
+              <label for="name">Nombre completo <span aria-hidden="true" style="color:var(--color-error);">*</span></label>
+              <input type="text" id="name" name="name" required autocomplete="name" placeholder="Escribe tu nombre completo" />
+              <span class="error" aria-live="assertive">Por favor ingresa tu nombre.</span>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico <span aria-hidden="true" style="color:var(--color-error);">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="usuario@ejemplo.com" />
+              <span class="error" aria-live="assertive">Por favor ingresa un correo válido.</span>
+            </div>
+            <div class="form-group">
+              <label for="phone">Número de teléfono <span aria-hidden="true" style="color:var(--color-error);">*</span></label>
+              <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="+54 9 11 1234 5678" />
+              <span class="error" aria-live="assertive">Por favor ingresa un número de teléfono válido.</span>
+            </div>
+            <div class="form-group">
+              <label for="address">Dirección completa <span aria-hidden="true" style="color:var(--color-error);">*</span></label>
+              <textarea id="address" name="address" required placeholder="Calle, número, ciudad, código postal" rows="3"></textarea>
+              <span class="error" aria-live="assertive">Por favor ingresa tu dirección completa.</span>
+            </div>
+            <div class="buttons">
+              <button type="button" id="next1">Siguiente →</button>
+            </div>
+          </fieldset>
+    
+          <!-- Step 2: Selección de simulaciones - UPDATED -->
+          <fieldset id="step2" aria-label="Selección de simulaciones">
+            <h2>Paso 2: Elige tus simulaciones</h2>
+            <div class="simulations-grid" role="group" aria-labelledby="step2" aria-describedby="sim-error">
+              <div class="sim-card" tabindex="0" data-price="7000">
+                <input type="checkbox" id="sim-examen" name="simulation" value="Examen de manejo" />
+                <label for="sim-examen">Examen de manejo</label>
+                <div class="sim-price">$7.000 ARS/30 min</div>
+                <div class="sim-description">Entrena la diferencia entre teoría y práctica en el examen de manejo.</div>
+              </div>
+              <div class="sim-card" tabindex="0" data-price="10500">
+                <input type="checkbox" id="sim-cirugia" name="simulation" value="Cirugía" />
+                <label for="sim-cirugia">Cirugía</label>
+                <div class="sim-price">$10.500 ARS/30 min</div>
+                <div class="sim-description">Simulación quirúrgica realista para práctica segura.</div>
+              </div>
+              <div class="sim-card" tabindex="0" data-price="8400">
+                <input type="checkbox" id="sim-paracaidismo" name="simulation" value="Paracaidismo" />
+                <label for="sim-paracaidismo">Paracaidismo</label>
+                <div class="sim-price">$8.400 ARS/30 min</div>
+                <div class="sim-description">Experimenta la adrenalina y técnica del salto.</div>
+              </div>
+              <div class="sim-card" tabindex="0" data-price="7700">
+                <input type="checkbox" id="sim-rcp" name="simulation" value="RCP" />
+                <label for="sim-rcp">RCP (Reanimación Cardiopulmonar)</label>
+                <div class="sim-price">$7.700 ARS/30 min</div>
+                <div class="sim-description">Aprende a salvar vidas con reanimación cardiopulmonar.</div>
+              </div>
+              <div class="sim-card" tabindex="0" data-price="7000">
+                <input type="checkbox" id="sim-dron" name="simulation" value="Vuelo de dron" />
+                <label for="sim-dron">Vuelo de dron</label>
+                <div class="sim-price">$7.000 ARS/30 min</div>
+                <div class="sim-description">Pilotea drones con precisión y seguridad.</div>
+              </div>
+              <div class="sim-card" tabindex="0" data-price="9100">
+                <input type="checkbox" id="sim-extincion" name="simulation" value="Extinción de incendios" />
+                <label for="sim-extincion">Extinción de incendios</label>
+                <div class="sim-price">$9.100 ARS/30 min</div>
+                <div class="sim-description">Practica técnicas seguras y realistas en gestión de incendios.</div>
+              </div>
+              <div class="sim-card" tabindex="0" data-price="9800">
+                <input type="checkbox" id="sim-reanimacion" name="simulation" value="Reanimación neonatal" />
+                <label for="sim-reanimacion">Reanimación neonatal</label>
+                <div class="sim-price">$9.800 ARS/30 min</div>
+                <div class="sim-description">Simulación para responder emergencias con recién nacidos.</div>
+              </div>
+              <div class="sim-card" tabindex="0" data-price="8750">
+                <input type="checkbox" id="sim-inca" name="simulation" value="Investigación de accidentes" />
+                <label for="sim-inca">Investigación de accidentes</label>
+                <div class="sim-price">$8.750 ARS/30 min</div>
+                <div class="sim-description">Analiza escenas para prevención y enseñanza.</div>
+              </div>
+              <div class="sim-card" tabindex="0" data-price="7350">
+                <input type="checkbox" id="sim-gastronomia" name="simulation" value="Gastronomía" />
+                <label for="sim-gastronomia">Gastronomía</label>
+                <div class="sim-price">$7.350 ARS/30 min</div>
+                <div class="sim-description">Practica técnicas culinarias con realidad virtual.</div>
+              </div>
+            </div>
+            <span id="sim-error" class="error" aria-live="assertive">Selecciona al menos una simulación para continuar o continúa sin ninguna si lo prefieres.</span>
+            <div class="buttons">
+              <button type="button" id="back2" class="secondary">← Volver</button>
+              <button type="button" id="next2">Siguiente →</button>
+            </div>
+          </fieldset>
+    
+          <!-- Step 3: Tiempo de simulación -->
+          <fieldset id="step3" aria-label="Duración de la simulación">
+            <h2>Paso 3: ¿Cuánto tiempo quieres usar la simulación?</h2>
+            <div class="form-group">
+              <label for="duration">Duración <span aria-hidden="true" style="color:var(--color-error);">*</span></label>
+              <select id="duration" name="duration" required>
+                <option value="" disabled selected>Selecciona una duración</option>
+                <option value="15">15 minutos</option>
+                <option value="20">20 minutos</option>
+                <option value="25">25 minutos</option>
+                <option value="30">30 minutos</option>
+                <option value="45">45 minutos</option>
+                <option value="60">1 hora</option>      
+                <option value="75">1 hora 15 minutos</option>
+                <option value="90">1 hora 30 minutos</option>
+                <option value="120">2 horas</option>
+              </select>
+              <span class="error" aria-live="assertive">Por favor selecciona una duración válida.</span>
+            </div>
+            <div class="buttons">
+              <button type="button" id="back3" class="secondary">← Volver</button>
+              <button type="button" id="next3">Siguiente →</button>
+            </div>
+          </fieldset>
+    
+          <!-- Step 4: Selección del casco -->
+          <fieldset id="step4" aria-label="Selección de casco de realidad virtual">
+            <h2>Paso 4: Elige el modelo de casco de realidad virtual</h2>
+            <div class="headset-cards" role="radiogroup" aria-required="true" aria-describedby="headset-error">
+              <div class="headset-card" tabindex="0">
+                <input type="radio" id="headset1" name="headset" value="Oculus Quest 2" required />
+                <label for="headset1">
+                  <span class="headset-title">Oculus Quest 2 <span class="option-label economical">Más económica</span></span>
+                  <span class="headset-benefits">Standalone y sin cables, ideal para usuarios que buscan accesibilidad y facilidad de uso.</span>
+                  <span class="headset-ideal">Ideal para: Juegos casuales y principiantes en VR.</span>
+                </label>
+              </div>
+              <div class="headset-card" tabindex="0">
+                <input type="radio" id="headset2" name="headset" value="HTC Vive Pro" />
+                <label for="headset2">
+                  <span class="headset-title">HTC Vive Pro <span class="option-label best-selling">La más vendida</span></span>
+                  <span class="headset-benefits">Alta fidelidad visual y sensores precisos para experiencias profesionales e inmersivas.</span>
+                  <span class="headset-ideal">Ideal para: Uso profesional y desarrolladores.</span>
+                </label>
+              </div>
+              <div class="headset-card" tabindex="0">
+                <input type="radio" id="headset3" name="headset" value="Valve Index" />
+                <label for="headset3">
+                  <span class="headset-title">Valve Index <span class="option-label best">Mejor opción</span></span>
+                  <span class="headset-benefits">Controles avanzados y audio superior con alta tasa de refresco para una experiencia realista.</span>
+                  <span class="headset-ideal">Ideal para: Entusiastas y usuarios que buscan precisión.</span>
+                </label>
+              </div>
+              <div class="headset-card" tabindex="0">
+                <input type="radio" id="headset4" name="headset" value="Pico Neo 3" />
+                <label for="headset4">
+                  <span class="headset-title">Pico Neo 3</span>
+                  <span class="headset-benefits">Standalone con buena relación calidad-precio, adecuado para experiencias independientes y entrenamientos.</span>
+                  <span class="headset-ideal">Ideal para: Entrenamientos y experiencias autónomas.</span>
+                </label>
+              </div>
+              <div class="headset-card" tabindex="0">
+                <input type="radio" id="headset5" name="headset" value="PlayStation VR2" />
+                <label for="headset5">
+                  <span class="headset-title">PlayStation VR2</span>
+                  <span class="headset-benefits">Optimizado para gaming con PlayStation 5, ofrece gráficos y seguimiento avanzados.</span>
+                  <span class="headset-ideal">Ideal para: Usuarios de PlayStation y gamers.</span>
+                </label>
+              </div>
+              <div class="headset-card" tabindex="0">
+                <input type="radio" id="headset6" name="headset" value="HP Reverb G2" />
+                <label for="headset6">
+                  <span class="headset-title">HP Reverb G2</span>
+                  <span class="headset-benefits">Alta resolución y comodidad, ideal para simulaciones profesionales y educativas.</span>
+                  <span class="headset-ideal">Ideal para: Uso profesional y simulaciones educativas.</span>
+                </label>
+              </div>
+            </div>
+            <span id="headset-error" class="error" aria-live="assertive">Por favor selecciona un modelo de casco.</span>
+            <div class="buttons">
+              <button type="button" id="back4" class="secondary">← Volver</button>
+              <button type="button" id="next4">Siguiente →</button>
+            </div>
+          </fieldset>
+    
+          <!-- Step 5: Método de pago -->
+          <fieldset id="step5" aria-label="Selección de método de pago">
+            <h2>Paso 5: Elige método de pago</h2>
+            <div class="payment-options" role="radiogroup" aria-required="true" aria-describedby="payment-error">
+              <div class="payment-option" tabindex="0">
+                <input type="radio" id="mpago" name="payment" value="Mercado Pago" required />
+                <label for="mpago">Mercado Pago</label>
+              </div>
+              <div class="payment-option" tabindex="0">
+                <input type="radio" id="efectivo" name="payment" value="Efectivo" />
+                <label for="efectivo">Efectivo</label>
+              </div>
+              <div class="payment-option" tabindex="0">
+                <input type="radio" id="tarjeta" name="payment" value="Tarjeta de Crédito" />
+                <label for="tarjeta">Tarjeta de Crédito</label>
+              </div>
+              <div class="payment-option" tabindex="0">
+                <input type="radio" id="paypal" name="payment" value="PayPal" />
+                <label for="paypal">PayPal</label>
+              </div>
+              <div class="payment-option" tabindex="0">
+                <input type="radio" id="transferencia" name="payment" value="Transferencia Bancaria" />
+                <label for="transferencia">Transferencia Bancaria</label>
+              </div>
+            </div>
+            <span id="payment-error" class="error" aria-live="assertive">Por favor selecciona un método de pago.</span>
+            <div class="buttons">
+              <button type="button" id="back5" class="secondary">← Volver</button>
+              <button type="button" id="next5">Siguiente →</button>
+            </div>
+          </fieldset>
+    
+          <!-- Credit Card details page -->
+          <fieldset id="stepCardDetails" aria-label="Detalles de tarjeta de crédito" style="display:none;">
+            <h2>Detalles de Tarjeta de Crédito</h2>
+            <div class="form-group">
+              <label for="cardNumber">Número de tarjeta <span aria-hidden="true" style="color:var(--color-error);">*</span></label>
+              <input type="text" id="cardNumber" name="cardNumber" maxlength="19" placeholder="1234 5678 9012 3456" autocomplete="cc-number" required />
+              <span class="error" aria-live="assertive">Por favor ingresa un número de tarjeta válido.</span>
+            </div>
+            <div class="form-group">
+              <label for="cardName">Nombre en la tarjeta <span aria-hidden="true" style="color:var(--color-error);">*</span></label>
+              <input type="text" id="cardName" name="cardName" autocomplete="cc-name" placeholder="Nombre completo" required />
+              <span class="error" aria-live="assertive">Por favor ingresa el nombre del titular.</span>
+            </div>
+            <div class="form-group">
+              <label for="expiryDate">Fecha de expiración (MM/AA) <span aria-hidden="true" style="color:var(--color-error);">*</span></label>
+              <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/AA" maxlength="5" required />
+              <span class="error" aria-live="assertive">Por favor ingresa una fecha válida</span>
+            </div>
+            <div class="form-group">
+              <label for="cvc">Código CVC <span aria-hidden="true" style="color:var(--color-error);">*</span></label>
+              <input type="text" id="cvc" name="cvc" maxlength="4" placeholder="123" required />
+              <span class="error" aria-live="assertive">Por favor ingresa un código CVC válido</span>
+            </div>
+            <div class="buttons">
+              <button type="button" id="cardBack" class="secondary">← Volver</button>
+              <button type="submit" id="cardSubmitBtn">Pagar y finalizar</button>
+            </div>
+          </fieldset>
+    
+          <!-- Step 6: Resumen y pago -->
+          <fieldset id="step6" aria-label="Resumen y pago" style="display:none;">
+            <h2>Paso 6: Resumen y pago</h2>
+            <div class="summary" id="summaryDetails" tabindex="0" aria-live="polite" aria-atomic="true">
+              <!-- Summary content inserted by JS -->
+            </div>
+            <div class="buttons">
+              <button type="button" id="back6" class="secondary">← Volver</button>
+              <button type="submit" id="submitBtn">Iniciar Simulación</button>
+            </div>
+          </fieldset>
+        </form>
+      </main>
+    
+</body>
+</html>
