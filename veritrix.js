@@ -94,10 +94,21 @@
   }
 
   // Step2 validation - always true (optional selection)
-  function validateStep2() {
+  // Step2 validation - debe seleccionar al menos una simulación
+function validateStep2() {
+  const selectedSimulations = getSelectedCheckboxes("simulation");
+  const isValid = selectedSimulations.length > 0;
+
+  if (!isValid) {
+    simError.style.display = "block";
+    simError.textContent = "Selecciona al menos una simulación para continuar.";
+  } else {
     simError.style.display = "none";
-    return true;
   }
+
+  return isValid;
+}
+
 
   // Step3 duration validation
   function validateStep3() {
